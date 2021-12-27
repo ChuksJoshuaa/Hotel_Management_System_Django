@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import cloudinary_storage
 import cloudinary
+import django_heroku
 from django.contrib.messages import constants as messages
 
 
@@ -170,6 +171,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+django_heroku.settings(locals())
 
 RECAPTCHA_PUBLIC_KEY = "6Le30tAdAAAAAAxZeV3hw2H5lTrghZT7E8TGX7uz"
 RECAPTCHA_PRIVATE_KEY = "6Le30tAdAAAAAJqYwKlQibL4vwl3eHxNZAQOpswx"
