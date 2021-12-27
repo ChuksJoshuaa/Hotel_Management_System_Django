@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework',
     'django.contrib.humanize',
+    'captcha',
     'cloudinary',
 
     #my_own_app
@@ -178,3 +179,6 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+RECAPTCHA_PUBLIC_KEY = "6Le30tAdAAAAAAxZeV3hw2H5lTrghZT7E8TGX7uz"
+RECAPTCHA_PRIVATE_KEY = "6Le30tAdAAAAAJqYwKlQibL4vwl3eHxNZAQOpswx"

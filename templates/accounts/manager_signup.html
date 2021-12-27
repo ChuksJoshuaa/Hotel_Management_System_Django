@@ -1,6 +1,6 @@
 {% extends 'others/base1.html' %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
 <body>
@@ -30,6 +30,9 @@
               <div class="form-group">
                  <label for="phone_no" class="col-form-label">Phone:</label>
                  <input type="text" name="phone_no" class="form-control">
+              </div>
+              <div>
+                {{ form|crispy }}
               </div>
              <br>
            <div class="sign-in">

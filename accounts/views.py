@@ -4,6 +4,7 @@ from .models import Customer, Manager
 from django.contrib import messages
 from django.contrib.auth.hashers import check_password, make_password
 from django.contrib import auth
+from .forms import accountform
 
 
 def user_login(request):
@@ -109,17 +110,20 @@ def manager_login(request):
 
 
 def user_signup(request):
+    form = accountform()
     if request.session.get('username', None) and request.session.get('type', None) == 'customer':
         return redirect('user_dashboard')
     if request.session.get('username', None) and request.session.get('type', None) == 'manager':
         return redirect('manager_dashboard')
     if request.method == "POST":
+        form = accountform(request.POST)
+        if form.is_valid():
+            form.save()
         username = request.POST['username']
         email = request.POST['email']
         phone_no = request.POST['phone_no']
         image = request.FILES.get('image', None)
         password = request.POST['password']
-
         if username:
             if Customer.objects.filter(username=username).exists():
                 messages.warning(request, "Account already exist, please login to continue")
@@ -134,15 +138,20 @@ def user_signup(request):
             messages.warning(request, "Username does not exist.")
             return redirect('user_signup')
     else:
-        return render(request, 'accounts/user_signup.html', {})
+        form = accountform()
+        return render(request, 'accounts/user_signup.html', {"form": form})
 
 
 def manager_signup(request):
+    form = accountform()
     if request.session.get('username', None) and request.session.get('type', None) == 'customer':
         return redirect('user_dashboard')
     if request.session.get('username', None) and request.session.get('type', None) == 'manager':
         return redirect('manager_dashboard')
     if request.method == "POST":
+        form = accountform(request.POST)
+        if form.is_valid():
+            form.save()
         username = request.POST['username']
         email = request.POST['email']
         phone_no = request.POST['phone_no']
@@ -163,7 +172,8 @@ def manager_signup(request):
             messages.warning(request, "Username does not exist.")
             return redirect('manager_signup')
     else:
-        return render(request, 'accounts/manager_signup.html', {})
+        form = accountform()
+        return render(request, 'accounts/manager_signup.html', {"form": form})
 
 
 def logout(request):
