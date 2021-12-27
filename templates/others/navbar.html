@@ -1,0 +1,120 @@
+{% load static %}
+
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <div class="site-navbar-wrap" style="background: rgb(241, 245, 248); border-bottom: 1px solid silver;">
+      <div class="site-navbar-top">
+        <div class="container py-3">
+          <div class="row align-items-center">
+            <div class="col-6">
+              <div class="d-flex mr-auto">
+                <a href="#" class="d-flex align-items-center mr-4">
+                  <span class="icon-envelope mr-2 link"></span>
+                  <span class="d-red d-md-inline-block link come">chuksmbanasoj@gmail.com</span>
+                </a>
+                <a href="#" class="d-flex align-items-center mr-auto">
+                  <span class="icon-phone mr-2 link"></span>
+                  <span class="d-none d-md-inline-block link come">09098220656</span>
+                </a>
+              </div>
+            </div>
+            <div class="col-6 text-right">
+              <div class="mr-auto">
+                <a href="#" class="p-2 pl-0"><span class="icon-twitter link"></span></a>
+                <a href="#" class="p-2 pl-0"><span class="icon-facebook link"></span></a>
+                <a href="#" class="p-2 pl-0"><span class="icon-linkedin link"></span></a>
+                <a href="#" class="p-2 pl-0"><span class="icon-instagram link"></span></a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-navbar site-navbar-target js-sticky-header">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <h1 class="my-0 site-logo"><a href="index.html"></a></h1>
+               <img width = "50px;" style = "border-radius: 60%;" src = "{% static 'images/logo.jpg' %}"
+                       alt = "This is a logo" >
+            </div>
+            <div class="col-10">
+              <nav class="site-navigation text-right" role="navigation">
+                <div class="container">
+                  <div style="color: black;" class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
+                      <a href="#" class="site-menu-toggle js-menu-toggle text-white">
+                          <span style="color: black;" class="icon-menu h3"></span></a></div>
+
+                  <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+                    <li class="active"><a href="{% url 'home' %}" class="nav-link"
+                                          style="font-size: 1.1rem;
+                                                font-weight: 900;
+                                                text-transform: capitalize;
+                                                color: #010429;
+                                                transition: all 0.3s linear;">Home</a></li>
+                    <li class="has-children">
+                      <a href="#" class="nav-link"
+                                     style="font-size: 1.1rem;
+                                            font-weight: 900;
+                                            text-transform: capitalize;
+                                            color: #010429;">Profile</a>
+                      <ul class="dropdown arrow-top">
+                       {% if request.session.type == 'customer' %}
+                          <li><a href="{% url 'user_dashboard' %}" class="nav-link" >Dashboard</a></li>
+                       {% else %}
+                          <li><a href="{% url 'manager_dashboard' %}" class="nav-link">Dashboard</a></li>
+                          <li><a href="{% url 'add-room' %}" class="nav-link">Add Rooms</a></li>
+                       {% endif %}
+                      </ul>
+                    </li>
+                    <li class="has-children">
+                           <a href="#" class="nav-link"
+                                      style="font-size: 1.1rem;
+                                            font-weight: 900;
+                                            text-transform: capitalize;
+                                            color: #010429;">Account</a>
+                        <ul class="dropdown arrow-top">
+                        {% if not request.session.username %}
+                             <li><a class="nav-link" href="{% url 'user_signup' %}">Register</a></li>
+                             <li><a class="nav-link" href="{% url 'user_login' %}">Login</a></li>
+                        {% else %}
+                             {% if request.session.type == 'customer' %}
+                                <li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                             {% else %}
+                                <li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                             {% endif %}
+                        {% endif %}
+                        </ul>
+                    </li>
+                    <li><a href="https://cestate.herokuapp.com/" class="nav-link"
+                                          style="font-size: 1.1rem;
+                                                font-weight: 900;
+                                                text-transform: capitalize;
+                                                color: #010429;">Real Estate</a></li>
+                    <li><a href="/contact/" class="nav-link"
+                                          style="font-size: 1.1rem;
+                                                font-weight: 900;
+                                                text-transform: capitalize;
+                                                color: #010429;">Contact</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero" style="background: rgb(241, 245, 248); height: 150px;"></div>
+
+
+

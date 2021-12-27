@@ -1,0 +1,42 @@
+{% extends 'others/base1.html' %}
+
+
+{% block content %}
+<body>
+   <h1 style="margin-bottom: 3%;"></h1>
+  <div class="both">
+    <form action="/accounts/manager_login/" method="POST">
+        {% csrf_token %}
+        <fieldset class="field">
+             <div class="join">Manager log in</div>
+             <br>
+              <div class="form-group">
+                <label for="username" class="col-form-label">Username:</label>
+                <input type="text" name="username" class="form-control">
+              </div>
+              <div class="form-group">
+                 <label for="password" class="col-form-label">Password:</label>
+                 <input type="text" name="password" class="form-control">
+              </div>
+             <br>
+           <div class="sign-in">
+             <button type="submit" class="btn btn-primary">Sign In</button>
+               <small class="text-muted ml-2">
+                  <a href="{% url 'password_reset' %}" style="text-decoration: none;">Forget Password?</a>
+               </small>
+              </div>
+          <div>
+              <small> Need an Account? <a href="{% url 'manager_signup' %}" style="text-decoration: none;">
+                  Sign Up Now</a></small>
+          </div>
+            <br>
+           <div class="redirect">
+              <h1>Customer should log in here <span class="btn btn-outline-secondary" style="font-family: 'Roboto', sans-serif;">
+                  <a href="/accounts/user_login/">Click here</a></span></h1>
+           </div>
+         </fieldset>
+    </form>
+  </div>
+</body>
+
+{%endblock%}

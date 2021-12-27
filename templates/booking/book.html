@@ -1,0 +1,78 @@
+{% extends 'others/base1.html'%}
+
+{% load static %}
+{% block content %}
+
+ <div class="room-row">
+        {% if data %}
+           <h1 style="margin-bottom: 4%;"></h1>
+           <h3 class="room-shift">One more step to go...</h3>
+           <h2 style="margin-bottom: 1%;"></h2>
+       <div class="get">
+         {% for  room in  data %}
+           <div class="get-room">
+                    <div class="image-room">
+                        <img src="{{ room.image.url }}" width="300px;" alt="">
+                    </div>
+                    <div class="room-type">
+                        <h2>{{room.room_type}}</h2>
+                        <h3>${{room.price}}</h3>
+                    </div>
+                  <a href="/book_now/{{ room.room_no }}" class="btn btn-primary" style="margin: 5%;">Book Now</a>
+           </div>
+         {% endfor %}
+       </div>
+
+        {% else %}
+          <div>
+             <h2 style="margin-bottom: 3%;"></h2>
+             <h3> Sorry No room available for the given days.</h3>
+             <h4>Select other days <a href="{% url 'home' %}" class="btn btn-outline-secondary">Here</a></h4>
+          </div>
+        {% endif %}
+     <h1 style="margin-bottom: 5%;"></h1>
+
+     <div class="row">
+        <div class="col-md-12">
+          {% if data.has_other_pages %}
+            <ul class="pagination">
+                {% if data.has_previous %}
+                  <li class="page-item">
+                    <a href="?page={{data.previous_page_number}}" class="page-link">&laquo;</a>
+                  </li>
+                {% else %}
+                  <li class="page-item disabled">
+                    <a class="page-link">&laquo;</a>
+                  </li>
+                {% endif %}
+                {% for i in data.paginator.page_range %}
+                  {% if data.number == i %}
+                    <li class="page-item active">
+                      <a class="page-link">{{i}}</a>
+                    </li>
+                  {% else %}
+                    <li class="page-item">
+                      <a href="?page={{i}}" class="page-link">{{i}}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+                {% if data.has_next %}
+                <li class="page-item">
+                  <a href="?page={{data.next_page_number}}" class="page-link">&raquo;</a>
+                </li>
+                {% else %}
+                  <li class="page-item disabled">
+                    <a class="page-link">&raquo;</a>
+                  </li>
+                {% endif %}
+            </ul>
+          {% endif %}
+        </div>
+     </div>
+ </div>
+{% if data %}
+  {% include 'others/footer.html' %}
+{% else %}
+   <h1 style="margin-bottom: 1%;"></h1>
+{% endif %}
+{% endblock %}

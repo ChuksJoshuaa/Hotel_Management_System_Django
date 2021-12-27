@@ -1,0 +1,35 @@
+{% extends 'others/base1.html'%}
+
+{% block content %}
+  <body>
+   <h1 style="margin-bottom: 3%;"></h1>
+  <div class="both">
+    <form action="." method="POST">{% csrf_token %}
+        <fieldset class="field">
+             <div class="join">Contact Form</div>
+             <br>
+              <div class="form-group">
+                <label for="username" class="col-form-label">Username:</label>
+                <input type="text" name="username" class="form-control">
+              </div>
+              <div class="form-group">
+                 <label for="email" class="col-form-label">Email:</label>
+                 <input type="text" name="email" class="form-control">
+              </div>
+              <div class="form-group">
+                 <label for="phone_no" class="col-form-label">Phone:</label>
+                 <input type="text" name="phone_no" class="form-control">
+              </div>
+              <div class="form-group">
+                 <label for="message" class="col-form-label">Message:</label>
+                 <input type="text" name="message" class="form-control">
+              </div>
+             <br>
+           <div class="sign-in">
+             <button type="submit" class="btn btn-primary">Submit</button>
+           </div>
+        </fieldset>
+    </form>
+  </div>
+</body>
+{% endblock %}

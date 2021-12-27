@@ -1,0 +1,79 @@
+{% extends 'others/base1.html'%}
+{% load humanize %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Shadows+Into+Light&display=swap" rel="stylesheet">
+  <h1 style="margin-bottom: 5%;"></h1>
+  <div class="room-body">
+     <div class="room-head">
+      <div class="room-top">
+         <div class="room-sheet1">
+            <div class="roomy">
+                <h5>No of active room booking</h5>
+                <h3>
+              {{ available }}
+                </h3>
+            </div>
+         </div>
+         <div class="room-sheet1">
+            <div class="roomy">
+                <h5>Rooms booked in past</h5>
+                <h3>
+              {{ count }}
+                </h3>
+            </div>
+         </div>
+      </div>
+     </div>
+       <div class="babe"><a class="btn btn-primary" href="{% url 'book' %}">Book More Rooms</a></div>
+        <h3 class="table-head">Booking history</h3>
+
+       {% if data %}
+      <div class="table-responsive">
+        <table class="table table-striped table-dark">
+         <thead>
+           <tr>
+              <th>Booking ID</th>
+              <th>Booked On</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Billing</th>
+              <th>Room Manager</th>
+              <th>Action</th>
+           </tr>
+         </thead>
+         <tbody>
+           {% for d in data %}
+                     <tr>
+                <td>{{d.id}}</td>
+                <td>{{d.booked_on | naturaltime }}</td>
+                <td>{{d.start_day}}</td>
+                <td>{{d.end_day}}</td>
+                <td>${{d.amount}}</td>
+                <td>{{d.room_no.manager.username}}</td>
+                {% if d.is_past_due %}
+                   <td><a class="btn disabled" href="/cancel_room/{{ d.id }}"><i class="fas fa-trash"></i></a></td>
+                {% else %}
+                   <td><a class="btn btn-danger" href="/cancel_room/{{ d.id }}"><i class="fas fa-trash"></i></a></td>
+                {% endif %}
+              </tr>
+           {% endfor %}
+         </tbody>
+      </table>
+     </div>
+       {% else %}
+          <div>
+             Sorry You haven't booked any room so far.
+          </div>
+       {% endif %}
+  </div>
+{% if data %}
+  {% include 'others/footer.html' %}
+{% else %}
+   <h1 style="margin-bottom: 1%;"></h1>
+{% endif %}
+{% endblock %}

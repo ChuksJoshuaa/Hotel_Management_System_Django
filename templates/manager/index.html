@@ -1,0 +1,85 @@
+{% extends 'others/base1.html'%}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Shadows+Into+Light&display=swap" rel="stylesheet">
+  <h1 style="margin-bottom: 5%;"></h1>
+  <div class="room-body">
+     <div class="room-head">
+      <div class="room-top">
+         <div class="room-sheet1">
+            <div class="roomy">
+                <h5>Occupied Rooms Status</h5>
+                <h3>
+                {{ booked }}
+                </h3>
+            </div>
+         </div>
+         <div class="room-sheet1">
+            <div class="roomy">
+                <h5>Total Rooms to manage</h5>
+                <h3>
+                {{ room_data.count }}
+                </h3>
+            </div>
+         </div>
+      </div>
+     </div>
+       <div class="babe"><a class="btn btn-primary" href="{% url 'add-room' %}">Add More Rooms</a></div>
+        <h3 class="table-head">Room Status</h3>
+    {% if room_data %}
+        <div class="table-responsive">
+             <table class="table table-striped table-dark">
+                <thead>
+                  <tr>
+                      <th scope="col">Room No</th>
+                      <th scope="col">Room Type</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Customer Name</th>
+                      <th scope="col">Booked On</th>
+                      <th scope="col">Booking Data</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for room in room_data%}
+                      <tr>
+                        <td>{{room.room_no}}</td>
+                        <td>{{room.room_type}}</td>
+                        <td>${{room.price}}</td>
+                        {% with data=room.booking_set.all.0 %}
+                        <td><a href="/customers/detail/{{data.user_id.id}}/{{data.id}}">{{data.user_id.username}}</a></td>
+                        <td>{{data.booked_on | naturaltime }}</td>
+                        <td>
+                        {% if room.is_available %}
+                            Available
+                        {% else %}
+                             {{ data.start_day }} to {{ data.end_day }}
+                        {% endif %}
+                        </td>
+                        <td><a class="btn btn-primary" href="/manager/add-room/update/{{room.room_no}}"><i class="fas fa-edit"></i></a></td>
+                        <td><a class="btn btn-danger" href="/room-delete/{{ room.id }}"><i class="fas fa-trash"></i></a></td>
+                        {% endwith %}
+                      </tr>
+                    {% endfor %}
+                </tbody>
+             </table>
+        </div>
+    {% else %}
+       <p>Sorry no rooom has been added by you, please add a room now <a href="{% url 'add-room' %}">Here</a></p>
+    {% endif %}
+  </div>
+<h1 style="margin-bottom: 3%;"></h1>
+{% if room_data %}
+  {% include 'others/footer.html' %}
+{% else %}
+   <h1 style="margin-bottom: 1%;"></h1>
+{% endif %}
+{% endblock %}
+

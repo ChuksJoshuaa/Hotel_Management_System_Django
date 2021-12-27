@@ -1,0 +1,45 @@
+{% extends 'others/base1.html' %}
+{% load static %}
+{% block content %}
+<body>
+   <h1 style="margin-bottom: 3%;"></h1>
+  <div class="both">
+    <form action="/accounts/user_signup/" enctype="multipart/form-data" method="POST">{% csrf_token %}
+        <fieldset class="field">
+             <div class="join">Create an Account</div>
+             <br>
+              <div class="form-group">
+                <label for="image" class="col-form-label">Image:</label>
+                  <br>
+                <input type="file" name="image">
+              </div>
+              <div class="form-group">
+                <label for="username" class="col-form-label">Username:</label>
+                <input type="text" name="username" class="form-control">
+              </div>
+              <div class="form-group">
+                 <label for="email" class="col-form-label">Email:</label>
+                 <input type="text" name="email" class="form-control">
+              </div>
+              <div class="form-group">
+                 <label for="password" class="col-form-label">Password:</label>
+                 <input type="text" name="password" class="form-control">
+              </div>
+              <div class="form-group">
+                 <label for="phone_no" class="col-form-label">Phone:</label>
+                 <input type="text" name="phone_no" class="form-control">
+              </div>
+             <br>
+           <div class="sign-in">
+             <button type="submit" class="btn btn-primary">Sign Up</button>
+           </div>
+           <br>
+            <div class="redirect"><h1>Manager should Sign up here
+               <span class="btn btn-outline-secondary" style="font-family: 'Roboto', sans-serif;">
+                   <a href="/accounts/manager_signup/">Click here</a></span></h1></div>
+         </fieldset>
+    </form>
+  </div>
+
+</body>
+{%endblock%}

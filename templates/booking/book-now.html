@@ -1,0 +1,30 @@
+{% extends 'others/base1.html'%}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Oregano&display=swap" rel="stylesheet">
+ <div class="row-now">
+   <div class="main-row">
+        <h3 style="margin-bottom: 3%;"></h3>
+      <div>
+          <div class="image-row">
+            <img src="{{ data.image.url }}">
+          </div>
+          <div>
+             <div class="baby-row">
+                <h1>{{ data.room_type }}</h1>
+                <p>Stay Duration: {{ start }} - {{ end }}</p>
+                <p>Room No: {{ data.room_no }}</p>
+                <p>Total Bill: {{ no_of_days }} * {{ data.price }} = ${{ bill }}</p>
+                <p>Room Manager: {{ room_manager }}</p>
+             </div>
+             <div>
+               <a href="{% url 'book-confirm' %}" class="btn btn-primary">Confirm Booking</a>
+             </div>
+          </div>
+      </div>
+  </div>
+ </div>
+<h1 style="margin-bottom: 5%;"></h1>
+{% include 'others/footer.html' %}
+{% endblock %}

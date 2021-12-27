@@ -1,0 +1,28 @@
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+{% if messages %}
+    {% for mess in messages %}
+        <div id="mess" class="container">
+            <div class="alert alert-{{  mess.tags }} alert-dismissable text-center" role="alert">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>
+                    {% if mess.level == DEFAULT_MESSAGE_LEVELS. %}
+                        Error:
+                    {% else %}
+                        {{ mess.tags|title }}
+                    {% endif %}
+                </strong>
+                {{ mess }}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+ <script>
+     $(".alert").alert('close')
+     $('.alert').alert()
+ </script>

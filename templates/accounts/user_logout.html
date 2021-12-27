@@ -1,0 +1,14 @@
+{% extends 'others/base1.html'%}
+
+{% block content %}
+<body style="background-color: white;">
+  <h1 style="margin-bottom: 5%;"></h1>
+  <div class="both-log" style="max-width: 600px; width: 80%;
+           margin: 0 auto; font-family: 'Ubuntu', sans-serif; font-size: 1rem;">
+      <h3>You have been logged out</h3>
+      <div>
+          <a class="btn btn-outline-secondary" href="{% url 'user_login' %}">Login</a>
+      </div>
+  </div>
+</body>
+{% endblock %}

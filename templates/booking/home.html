@@ -1,0 +1,277 @@
+{% extends 'others/base.html' %}
+{% load static %}
+{% block content %}
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  rel="stylesheet">
+
+<div class="book-home" style=" background: linear-gradient(rgba(63, 208, 212, 0.4), rgba(0, 0, 0, 0.7)),
+    url('{% static 'images/hotel1.jpg' %}') center/cover no-repeat;
+     background-position: center; background-size: cover;" xmlns="http://www.w3.org/1999/html">
+       <div class="book-body">
+           <div class="book-grid">
+              <div class="body-grid1">
+                <h1>Searching for a place to stay?</h1>
+                <h2>Great deals on hotels, resorts and private homes</h2>
+                <h2 style="margin-bottom: 3%;"></h2>
+              </div>
+              <div class="body-grid2">
+                    <div class="col s5 input-field">
+                       <input type="date" id="start1" class="datepicker-start box"/>
+                       <label for="start1" class="red-text text-lighten-2 start" >Start Date</label>
+                    </div>
+                    <div  class="col s5 input-field">
+                      <input type="date" id="end1" class="datepicker-end box"/>
+                      <label for="end1" class="red-text text-lighten-2 start">End Date</label>
+                    </div>
+                    <div>
+                        <button class="btn btn-secondary box" style="font-family: 'lato', sans-serif;"><a id="show_me_rooms">Book Room</a></button>
+                    </div>
+              </div>
+           </div>
+           <div class="second-grid">
+               <div style="font-size: 3rem; text-align: center; color: white;"><i class="fa fa-bed" aria-hidden="true"></i></div>
+               <h1>FLEXIBLE HOME</h1>
+               <p>Plans change. That’s why we offer free cancellation on most hotels
+                   & rental homes and pay at your own pace with affirm</p>
+           </div>
+       </div>
+    </div>
+  <div id="shield">
+    <div class="body-shield">
+      <div class="body-shield-cover">
+        <div class="body-shield-child">
+            <h1 style="margin-bottom: 5%;"></h1>
+            <div class="font"><i class="fa fa-shield" aria-hidden="true"></i></div>
+            <h1>FLEXIBLE BOOKINGS</h1>
+            <p>Plans change. That’s why we offer free cancellation on most hotels & rental cars.</p>
+        </div>
+        <div class="body-shield-child">
+            <h1 style="margin-bottom: 5%;"></h1>
+            <div class="font"><i class="fa fa-usd" aria-hidden="true"></i></div>
+            <h1>INCREDIBLE DEALS</h1>
+            <p>Check out with confidence. Our members always get our best price.</p>
+        </div>
+        <div class="body-shield-child">
+            <h1 style="margin-bottom: 5%;"></h1>
+            <div class="font"><i class="fa fa-bus" aria-hidden="true"></i></div>
+            <h1>NO FLIGHT? NO PROBLEM</h1>
+            <p>Bundle hotel & rental car deals to build your perfect getaway. No airtime required.</p>
+        </div>
+        <div class="body-shield-child">
+            <h1 style="margin-bottom: 5%;"></h1>
+            <div class="font"><i class="fa fa-question-circle" aria-hidden="true"></i></div>
+            <h1>Help</h1>
+            <p>We’re always here for you – reach us 24 hours a day, 7 days a week.</p>
+        </div>
+      </div>
+    </div>
+ </div>
+ <div class="shield-bottom"></div>
+  <h1 class="head-boy">Don't Miss these hotel deals </h1>
+ <div class="slider-container">
+   <div class="slider">
+     <div class="slide">
+        <img src="{% static 'images/hotel4.jpg' %}" class="person-img" alt="" />
+       <div class="slide-child">
+         <h4>Las Vegas</h4>
+         <h3>$600</h3>
+       </div>
+     </div>
+     <div class="slide">
+           <img src="{% static 'images/hotel.jpg' %}" class="person-img" alt="" />
+        <div class="slide-child">
+          <h4>Los Angeles</h4>
+          <h3>$700</h3>
+        </div>
+     </div>
+     <div class="slide">
+          <img src="{% static 'images/dhotel.jpg' %}" class="person-img" alt="" />
+       <div class="slide-child">
+         <h4>Berlin</h4>
+         <h3>$590</h3>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ {% include 'others/news.html' %}
+
+<div class="main-deal">
+  <div class="mr-deal">
+    <div class="section-deal">
+        <h1>Save up to 50% on your next hotel</h1>
+        <p>Get fast, easy savings on your next hotel with our exclusive Express Deals. Save up to 50% on your next hotel. Book and save</p>
+        <button style="font-family: sans-serif;" class="btn btn-primary"><a style="color: white;" href="/contact/">Contact-us</a></button>
+    </div>
+  </div>
+</div>
+<div style="margin-bottom: 5%;"></div>
+<div class="island">
+  <div class="island-main">
+     <div class="island-image">
+         <img src="{% static 'images/dinner2.jpg' %}" alt="image"/>
+     </div>
+     <div class="island-body">
+            <h1>Cultured Dining</h1>
+            <p>Knai Bang Chatt features three unique dining venues offering a mix of the locally-
+                and globally-inspired cuisine. Our kitchen team is trained to the highest standards,
+                and we aim to source 60% of our fruit and vegetables from our on-site organic garden.
+                The Kep coast is famous for its seafood, and we source all of ours from local fishermen.
+            </p>
+           <h1></h1>
+     </div>
+  </div>
+</div>
+<div style="margin-bottom: 5%;"></div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+<div>
+    <section class="questions">
+        <div class="title">
+          <h2>general questions</h2>
+        </div>
+         <div class="section-center">
+             <article class="question">
+                <div class="question-title">
+                  <p>do you accept all major credit cards?</p>
+                  <button type="button" class="question-btn">
+                    <span class="plus-icon"><i class="far fa-plus-square"></i></span>
+                    <span class="minus-icon"><i class="far fa-minus-square"></i></span>
+                  </button>
+                </div>
+                <div class="question-text">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
+                    dolore illo dolores quia nemo doloribus quaerat, magni numquam
+                    repellat reprehenderit.
+                  </p>
+                </div>
+             </article>
+             <article class="question">
+                <div class="question-title">
+                   <p>Does the price include all fees and taxes?</p>
+                   <button type="button" class="question-btn">
+                      <span class="plus-icon"><i class="far fa-plus-square"></i></span>
+                      <span class="minus-icon"><i class="far fa-minus-square"></i></span>
+                   </button>
+                </div>
+                <div class="question-text">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
+                    dolore illo dolores quia nemo doloribus quaerat, magni numquam
+                    repellat reprehenderit.
+                  </p>
+                </div>
+             </article>
+             <article class="question">
+                 <div class="question-title">
+                    <p>What can we do to help you find what you're looking for?</p>
+                    <button type="button" class="question-btn">
+                        <span class="plus-icon"><i class="far fa-plus-square"></i></span>
+                        <span class="minus-icon"><i class="far fa-minus-square"></i></span>
+                    </button>
+                 </div>
+                 <div class="question-text">
+                     <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
+                        dolore illo dolores quia nemo doloribus quaerat, magni numquam
+                        repellat reprehenderit.
+                     </p>
+                 </div>
+             </article>
+             <article class="question">
+                 <div class="question-title">
+                    <p>Can you tell me where in the hotel my room will be located?</p>
+                    <button type="button" class="question-btn">
+                        <span class="plus-icon"><i class="far fa-plus-square"></i></span>
+                        <span class="minus-icon"><i class="far fa-minus-square"></i></span>
+                    </button>
+                 </div>
+                 <div class="question-text">
+                     <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
+                        dolore illo dolores quia nemo doloribus quaerat, magni numquam
+                        repellat reprehenderit.
+                     </p>
+                 </div>
+             </article>
+         </div>
+      </section>
+</div>
+<script>
+// Accept datepicker-start or datepicker-end, as we need to initialize both anyway.
+$("input[class*='datepicker-']").pickadate({
+  selectMonths: false,
+  selectYears: 1,
+  format: 'yyyy/mmm/dd',
+  onSet: function(obj){
+    let thisPicker = $(this)[0].$node;
+
+    // Check if this is the start date
+    let classes = thisPicker.attr("class");
+    if (classes === undefined || classes.length === 0 || classes.indexOf("datepicker-start") < 0){
+      return;
+    }
+
+    // .datepicker-start must be wrapped in a div.input-field element (in this example), and
+    // .datepicker-end must be in the next div.input-field.  Change selectors for your conditions.
+    let parent1 = thisPicker.closest("div.input-field");    // This picker's parent
+    let parent2 = parent1.next("div.input-field");          // Next picker's parent
+    let picker2 = parent2.find(".datepicker-end");          // Matching 'end' picker
+
+    // Set end picker minimum date, or whatever you need.
+    if(obj.select){
+      let dt = new Date(obj.select);
+      picker2.pickadate('picker').set('min', dt);
+    }
+    if(obj.hasOwnProperty('clear')){
+      picker2.pickadate('picker').set('min', false);
+    }
+  }
+});
+</script>
+<script>
+const room_btn=document.getElementById("show_me_rooms")
+room_btn.addEventListener("click",(e)=>
+{
+e.preventDefault()
+startDate=$('.datepicker-start').val();
+endDate=$('.datepicker-end').val();
+//d = new Date(endDate);
+sd=new Date(startDate)
+td=new Date()
+if (sd<td || startDate.length==0 || endDate.length==0)
+{
+alert("Please choose a valid date")
+}
+else
+{
+     var form = document.createElement("form");
+    var element1 = document.createElement("input");
+    var element2 = document.createElement("input");
+    var element3= document.createElement("input");
+
+    form.method = "POST";
+    form.action = "/book/";
+
+    element1.name="start_date";
+    element1.type="text"
+    element1.value=startDate;
+    form.appendChild(element1);
+
+ element2.name="end_date";
+    element2.type="text"
+    element2.value=endDate;
+    form.appendChild(element2);
+    element3.value='{{csrf_token}}';
+    element3.name="csrfmiddlewaretoken";
+    element3.type="hidden"
+    form.appendChild(element3);
+    document.body.appendChild(form);
+    form.submit();
+}
+})
+</script>
+{% include 'others/footer.html' %}
+{% endblock %}

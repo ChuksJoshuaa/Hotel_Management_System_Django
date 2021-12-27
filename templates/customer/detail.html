@@ -1,0 +1,35 @@
+{% extends 'others/base.html'%}
+{% load humanize %}
+{% load static %}
+
+
+{% block content %}
+<body style="background: rgba(228, 247, 237, 0.5);">
+<div class="row-now">
+    <div class="main-row">
+         <h3 style="margin-bottom: 3%;"></h3>
+        <div>
+            <div class="image-row">
+              <img src="{{ user.image.url }}">
+            </div>
+            <div>
+               <div class="baby-row">
+                    <h1>{{ user.username }} </h1>
+                    <p>Email: {{user.email}} </p>
+                    <p>Phone No: {{user.phone_no}}</p>
+                    <p>Booked On: {{booking_data.booked_on | naturaltime}} </p>
+                    <p>Start Day: {{booking_data.start_day}} </p>
+                    <p>End Day: {{booking_data.end_day}} </p>
+                    <p>Billing: ${{booking_data.amount}} </p>
+               </div>
+               <div>
+                   <a href="{% url 'manager_dashboard' %}" class="btn btn-primary">Go Back</a>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+</body>
+<h1 style="margin-bottom: 5%;"></h1>
+{% include 'others/footer.html' %}
+{% endblock %}

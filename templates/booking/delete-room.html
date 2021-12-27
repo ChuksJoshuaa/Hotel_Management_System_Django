@@ -1,0 +1,18 @@
+{% extends "others/base.html" %}
+
+{% block content %}
+<body style="background-color: white;" xmlns="http://www.w3.org/1999/html">
+  <div class="both">
+      <h3 style="margin-bottom: 5%;"></h3>
+    <form action="." method="POST">{% csrf_token %}
+         <fieldset class="field">
+             <h5 style="font-size: 1.5rem; font-weight: 900;">Are you sure you want to delete room number {{ object.room_no }} </h5>
+           <div class="delete">
+             <input class="btn btn-outline-danger" style="animation: none; font-size: 0.7rem;" type="submit" value="Yes, Delete">
+              <a class="btn btn-outline-secondary" style="animation: none; font-size: 0.7rem;" href="{% url 'manager_dashboard' %}">Cancel</a>
+           </div>
+         </fieldset>
+    </form>
+  </div>
+</body>
+{% endblock %}
