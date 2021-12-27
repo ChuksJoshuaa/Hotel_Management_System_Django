@@ -117,8 +117,6 @@ def user_signup(request):
         return redirect('manager_dashboard')
     if request.method == "POST":
         form = accountform(request.POST)
-        if form.is_valid():
-            form.save()
         username = request.POST['username']
         email = request.POST['email']
         phone_no = request.POST['phone_no']
@@ -150,8 +148,6 @@ def manager_signup(request):
         return redirect('manager_dashboard')
     if request.method == "POST":
         form = accountform(request.POST)
-        if form.is_valid():
-            form.save()
         username = request.POST['username']
         email = request.POST['email']
         phone_no = request.POST['phone_no']
