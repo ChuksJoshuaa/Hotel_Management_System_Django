@@ -30,11 +30,11 @@ def home(request):
 
 def contact_view(request):
     if request.method == "POST":
-        username = request.POST['username']
+        name = request.POST.get('name', False)
         email = request.POST['email']
         phone_no = request.POST.get('phone_no', False)
         message = request.POST['message']
-        contact = Contact.objects.create(name=username, email=email, message=message, phone_no=phone_no)
+        contact = Contact(name=name, email=email, message=message, phone_no=phone_no)
         contact.save()
         send_mail(
             'Contact Inquiry',
