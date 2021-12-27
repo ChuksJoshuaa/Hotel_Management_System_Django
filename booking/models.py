@@ -16,7 +16,7 @@ class News(models.Model):
 class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
-    phone_no = models.IntegerField()
+    phone_no = models.CharField(max_length=100)
     message = models.TextField(max_length=5000)
 
     def __str__(self):
