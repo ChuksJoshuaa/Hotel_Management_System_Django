@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
     'rest_framework',
     'django.contrib.humanize',
     'captcha',
@@ -61,7 +60,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -151,13 +149,6 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '423979199723327',
     'API_SECRET': 'ESQWs8zmwee3iCWooKfMQ4XqOi4'
 }
-
-INTERNAL_IPS = [
-    # ...
-    '127.0.0.1',
-    # ...
-]
-
 
 MESSAGE_TAGS = {
     messages.WARNING: 'danger'
