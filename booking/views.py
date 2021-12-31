@@ -16,15 +16,19 @@ def home(request):
         email = request.POST['email']
         news = News(name=name, email=email)
         news.save()
-        send_mail(
-            'Newsletter Subscription',
-            message,
-            email,
-            ['chuksmbanasoj@gmail.com'],
-            fail_silently=True
-        )
-        messages.success(request, f"Thanks for subscribing to our newsletter!! {name}")
-        return redirect("home")
+        if email and name:
+            send_mail(
+                'Newsletter Subscription',
+                message,
+                email,
+                ['chuksmbanasoj@gmail.com'],
+                fail_silently=True
+            )
+            messages.success(request, f"Thanks for subscribing to our newsletter!! {name}")
+            return redirect("home")
+        else:
+            messages.warning(request, f"You are required to provide your name and email before submitting")
+            return redirect("home")
     return render(request, "booking/home.html", {})
 
 
@@ -36,15 +40,20 @@ def contact_view(request):
         message = request.POST['message']
         contact = Contact(name=name, email=email, message=message, phone_no=phone_no)
         contact.save()
-        send_mail(
-            'Contact Inquiry',
-            message,
-            email,
-            ['chuksmbanasoj@gmail.com'],
-            fail_silently=True
-        )
-        messages.success(request, 'Thank you for contacting us, the manager will get back to you soon')
-        return redirect('/contact/')
+
+        if email and name and message and phone_no:
+            send_mail(
+                'Contact Inquiry',
+                message,
+                email,
+                ['chuksmbanasoj@gmail.com'],
+                fail_silently=True
+            )
+            messages.success(request, 'Thank you for contacting us, the manager will get back to you soon')
+            return redirect('/contact/')
+        else:
+            messages.warning(request, 'Please, kindly fill in the form before sending us a complaint')
+            return redirect('/contact/')
     return render(request, "booking/contact.html", {})
 
 

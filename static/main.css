@@ -294,7 +294,7 @@ html {
   .slider-container {
     height: auto;
     width: 90%;
-    margin-bottom: 3%;
+    margin-bottom: 5%;
   }
 
   .person-img {
@@ -369,8 +369,9 @@ html {
 }
 
 .boxing:hover {
-  background: #fff;
-  color: #3c96d6;
+  background: #222;
+  color: #fff;
+  box-shadow: none;
 }
 
 @media screen and (max-width: 880px) {
