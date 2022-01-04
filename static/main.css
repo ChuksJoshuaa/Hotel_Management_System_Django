@@ -209,26 +209,15 @@ html {
   text-align: center;
   letter-spacing: 0.125rem;
   font-family: "Open Sans", sans-serif;
-  position: relative;
-  right: 26%;
   margin-bottom: 2%;
 }
-
-@media screen and (max-width: 990px) {
-  .head-boy {
-    right: 0%;
-    text-align: center;
-  }
-}
-
 .shield-bottom {
   margin-bottom: 5%;
 }
 
 @media screen and (max-width: 990px) {
   .head-boy {
-    right: 0%;
-    text-align: center;
+    font-size: 1.6rem;
   }
 
   .shield-bottom {
