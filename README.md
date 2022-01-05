@@ -22,9 +22,6 @@ Hotel web app (Full Stack Frameworks with Django Project)
 
 - [Bootstrap](https://getbootstrap.com/) - Open source toolkit for developing with HTML, CSS, and JS
 
-- [folium](https://pypi.org/project/folium/) - folium builds on the data wrangling strengths of the Python ecosystem and the mapping strengths of the Leaflet.js library. Manipulate your data in Python, then visualize it in a Leaflet map via folium.
-
-
 ## Tools, libraries and resources used:
 
 - [Pillow](https://pillow.readthedocs.io/en/5.3.x/) - Pillow is the friendly PIL fork. PIL is the Python Imaging Library
