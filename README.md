@@ -54,6 +54,6 @@ Hotel web app (Full Stack Frameworks with Django Project)
 
 - heroku run bash
 
-- heroku run python manage.py migrate
+- heroku run python manage.py migrate.
 
 - heroku login.
