@@ -10,7 +10,7 @@ Hotel web app (Full Stack Frameworks with Django Project)
 
 ## Built With
 
-- [Python 3](https://www.python.org/) - Programming language that lets you work quickly and integrate systems more effectively
+- [Python 3](https://www.python.org/) - Programming language that lets you work quickly and integrate systems more effectively.
 
 - [Javascript](https://www.javascript.com) - It is a text-based programming language used both on the client-side and server-side that allows you to make web pages interactive.
 
