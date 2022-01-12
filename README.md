@@ -34,7 +34,7 @@ Hotel web app (Full Stack Frameworks with Django Project)
 
 - [Heroku](https://www.heroku.com/) - It is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 
-- [Gunicorn](https://gunicorn.org/) - Python WSGI HTTP Server for UNIX. It's a pre-fork worker model
+- [Gunicorn](https://gunicorn.org/) - Python WSGI HTTP Server for UNIX. It's a pre-fork worker model.
 
 ## Getting started
 
@@ -46,7 +46,7 @@ Hotel web app (Full Stack Frameworks with Django Project)
 
 ## Deployment
 
-- Make sure all the necessary python packages are installed 
+- Make sure all the necessary python packages are installed.
 
 - Also Make sure requirements.txt and Procfile exist pip3 freeze --local requirements.txt echo web: python app.py > Procfile
 
