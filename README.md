@@ -6,7 +6,7 @@ Hotel web app (Full Stack Frameworks with Django Project)
 
 <img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1640567120/media/Manager/Screenshot_45_g6xhed.png" title="Hotel Django" alt="Chuks Hotel Website">..
 
-<img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1640567199/media/Manager/Screenshot_46_czr36w.png" title="Hotel Django" alt="Chuks Hotel Website">
+<img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1640567199/media/Manager/Screenshot_46_czr36w.png" title="Hotel Django" alt="Chuks Hotel Website">.
 
 ## Built With
 
