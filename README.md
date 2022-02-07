@@ -1,6 +1,6 @@
 Hotel web app (Full Stack Frameworks with Django Project)
 
-> > Fully reponsive Hotel Web Application. From development to deployment.
+> > Fully reponsive Hotel Web Application. From development to deployment..
 
 <img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1640566987/media/Manager/Screenshot_44_aboygz.png" title="Hotel Django" alt="Chuks Hotel Website">..
 
