@@ -2,11 +2,11 @@ Hotel web app (Full Stack Frameworks with Django Project)
 
 > > Fully reponsive Hotel Web Application. From development to deployment..
 
-<img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1640566987/media/Manager/Screenshot_44_aboygz.png" title="Hotel Django" alt="Chuks Hotel Website">..
+<img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1653540797/media/Screenshot_167_ilgpwj.png" title="Hotel Django" alt="Chuks Hotel Website">..
 
-<img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1640567120/media/Manager/Screenshot_45_g6xhed.png" title="Hotel Django" alt="Chuks Hotel Website">..
+<img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1653540813/media/Screenshot_169_kkxv0y.png" title="Hotel Django" alt="Chuks Hotel Website">..
 
-<img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1640567199/media/Manager/Screenshot_46_czr36w.png" title="Hotel Django" alt="Chuks Hotel Website">..
+<img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1653540803/media/Screenshot_172_loggwm.png" title="Hotel Django" alt="Chuks Hotel Website">..
 
 ## Built With
 
