@@ -36,14 +36,15 @@ def user_login(request):
                     user = Customer.objects.filter(password=password).exists()
                     password_hash = user
                     if res:
-                       res = check_password(password, password_hash)
+                        res = check_password(password, password_hash)
                     else:
                         messages.warning(request, "Password is incorrect")
                         return redirect('user_login')
                     if res == 1:
                         request.session['username'] = username
                         request.session['type'] = 'customer'
-                        user = auth.authenticate(username=username, password=password)
+                        user = auth.authenticate(
+                            username=username, password=password)
                         auth.login(request, user)
                         return redirect('home')
                     else:
@@ -53,7 +54,8 @@ def user_login(request):
                 messages.warning(request, "username does not exist")
                 return redirect('user_login')
         else:
-            messages.warning(request, "No account exist for the given Username")
+            messages.warning(
+                request, "No account exist for the given Username")
             return redirect('user_login')
     else:
         redirect('user_login')
@@ -95,14 +97,16 @@ def manager_login(request):
                 if res == 1:
                     request.session['username'] = username
                     request.session['type'] = 'manager'
-                    user = auth.authenticate(username=username, password=password)
+                    user = auth.authenticate(
+                        username=username, password=password)
                     auth.login(request, user)
                     return redirect('home')
                 else:
                     messages.warning(request, "Password is incorrect")
                     return redirect('manager_login')
         else:
-            messages.warning(request, "No account exist for the given Username")
+            messages.warning(
+                request, "No account exist for the given Username")
             return redirect('manager_login')
     else:
         redirect('manager_login')
@@ -110,13 +114,13 @@ def manager_login(request):
 
 
 def user_signup(request):
-#     form = accountform()
+    #     form = accountform()
     if request.session.get('username', None) and request.session.get('type', None) == 'customer':
         return redirect('user_dashboard')
     if request.session.get('username', None) and request.session.get('type', None) == 'manager':
         return redirect('manager_dashboard')
     if request.method == "POST":
-#         form = accountform(request.POST)
+        #         form = accountform(request.POST)
         username = request.POST['username']
         email = request.POST['email']
         phone_no = request.POST['phone_no']
@@ -124,30 +128,33 @@ def user_signup(request):
         password = request.POST['password']
         if username:
             if Customer.objects.filter(username=username).exists():
-                messages.warning(request, "Account already exist, please login to continue")
+                messages.warning(
+                    request, "Account already exist, please login to continue")
                 return redirect('user_login')
             else:
                 password_hash = make_password(password)
-                user = Customer(username=username, email=email, image=image, password=password_hash, phone_no=phone_no)
+                user = Customer(username=username, email=email, image=image,
+                                password=password_hash, phone_no=phone_no)
                 user.save()
-                messages.success(request, "Account Created Successfully, Please login to continue")
+                messages.success(
+                    request, "Account Created Successfully, Please login to continue")
                 return redirect('user_login')
         else:
             messages.warning(request, "Username does not exist.")
             return redirect('user_signup')
     else:
-        form = accountform()
-        return render(request, 'accounts/user_signup.html', {"form": form})
+        # form = accountform()
+        return render(request, 'accounts/user_signup.html')
 
 
 def manager_signup(request):
-#     form = accountform()
+    #     form = accountform()
     if request.session.get('username', None) and request.session.get('type', None) == 'customer':
         return redirect('user_dashboard')
     if request.session.get('username', None) and request.session.get('type', None) == 'manager':
         return redirect('manager_dashboard')
     if request.method == "POST":
-#         form = accountform(request.POST)
+        #         form = accountform(request.POST)
         username = request.POST['username']
         email = request.POST['email']
         phone_no = request.POST['phone_no']
@@ -156,20 +163,23 @@ def manager_signup(request):
 
         if username:
             if Manager.objects.filter(username=username).exists():
-                messages.warning(request, "Account already exist, please login to continue")
+                messages.warning(
+                    request, "Account already exist, please login to continue")
                 return redirect('manager_login')
             else:
                 password_hash = make_password(password)
-                user = Manager(username=username, email=email, image=image, password=password_hash, phone_no=phone_no)
+                user = Manager(username=username, email=email, image=image,
+                               password=password_hash, phone_no=phone_no)
                 user.save()
-                messages.success(request, "Account Created Successfully, Please login to continue")
+                messages.success(
+                    request, "Account Created Successfully, Please login to continue")
                 return redirect('manager_login')
         else:
             messages.warning(request, "Username does not exist.")
             return redirect('manager_signup')
     else:
-        form = accountform()
-        return render(request, 'accounts/manager_signup.html', {"form": form})
+        # form = accountform()
+        return render(request, 'accounts/manager_signup.html')
 
 
 def logout(request):
@@ -179,6 +189,3 @@ def logout(request):
         return render(request, "accounts/user_logout.html", {})
     else:
         return render(request, "accounts/user_login.html", {})
-
-
-
