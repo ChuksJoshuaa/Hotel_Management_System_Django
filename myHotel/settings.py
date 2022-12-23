@@ -16,22 +16,18 @@ import cloudinary_storage
 import cloudinary
 import django_heroku
 from django.contrib.messages import constants as messages
+from dotenv import load_dotenv
+load_dotenv()
 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-hydh^bqx&nu9lh6yc_40mw18*y1^tci5qipq_s*#5skhv7)^9v'
-SECRET_KEY = '4998f3e0160679fa499b2613305d71054cb51cacbcde32c9'
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['https://chotel.herokuapp.com/']
+ALLOWED_HOSTS = [os.getenv('LOCAL_HOST')]
 
 
 # Application definition
@@ -50,7 +46,7 @@ INSTALLED_APPS = [
     'captcha',
     'cloudinary',
 
-    #my_own_app
+    # my_own_app
     'accounts',
     'api',
     'booking',
@@ -146,9 +142,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'chuksmbanaso',
-    'API_KEY': '423979199723327',
-    'API_SECRET': 'ESQWs8zmwee3iCWooKfMQ4XqOi4'
+    'CLOUD_NAME': os.getenv('CLOUD_NAME'),
+    'API_KEY': os.getenv('API_KEY'),
+    'API_SECRET': os.getenv('API_SECRET')
 }
 
 MESSAGE_TAGS = {
@@ -161,9 +157,9 @@ LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'user_login'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'wmltsqwgdafjpniq'
-EMAIL_HOST_USER = 'chuksmbanasoj@gmail.com'
-EMAIL_PORT = 465
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
+EMAIL_HOST_USER = os.getenv('EMAIL_USER')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
@@ -173,5 +169,5 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
 
-RECAPTCHA_PUBLIC_KEY = "6LdM_NAdAAAAADm2YzSRP_Q0R04G33xC_jgsVzuJ"
-RECAPTCHA_PRIVATE_KEY = "6LdM_NAdAAAAAGYckvMHbGhF6hIeKnQfy4RxHI75"
+RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
