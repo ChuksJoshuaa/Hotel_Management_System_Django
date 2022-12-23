@@ -20,13 +20,8 @@
                 <div  class="d-flex align-items-center mr-4">
                   <span class="icon-envelope mr-2 link"></span>
                   <span class="d-red d-md-inline-block link come">chuksjoshuaa@gmail.com</span>
-<<<<<<< HEAD
                 </div>
                 <div class="d-flex align-items-center mr-auto"><a href="tel: +2349098220656">
-=======
-                </a>
-                <a href="#" class="d-flex align-items-center mr-auto">
->>>>>>> 15e1d31f33c6fa6ee64bff208421d2b6ce275829
                   <span class="icon-phone mr-2 link"></span>
                   <span class="d-none d-md-inline-block link come">09098220656</span>
                     </a>
@@ -50,8 +45,10 @@
           <div class="row align-items-center">
             <div class="col-2">
               <h1 class="my-0 site-logo"><a href="index.html"></a></h1>
-               <img width = "50px;" style = "border-radius: 60%;" src = "{% static 'images/logo.jpg' %}"
-                       alt = "This is a logo" >
+               <a href="{% url 'home' %}">
+                <img width = "50px;" style = "border-radius: 60%;" src = "{% static 'images/logo.jpg' %}"
+                       alt = "This is a logo" />
+               </a>
             </div>
             <div class="col-10">
               <nav class="site-navigation text-right" role="navigation">
