@@ -4,7 +4,7 @@ from .models import Customer, Manager
 from django.contrib import messages
 from django.contrib.auth.hashers import check_password, make_password
 from django.contrib import auth
-from .forms import accountform
+# from .forms import accountform
 
 
 def user_login(request):
@@ -110,7 +110,7 @@ def manager_login(request):
 
 
 def user_signup(request):
-    form = accountform()
+#     form = accountform()
     if request.session.get('username', None) and request.session.get('type', None) == 'customer':
         return redirect('user_dashboard')
     if request.session.get('username', None) and request.session.get('type', None) == 'manager':
@@ -141,7 +141,7 @@ def user_signup(request):
 
 
 def manager_signup(request):
-    form = accountform()
+#     form = accountform()
     if request.session.get('username', None) and request.session.get('type', None) == 'customer':
         return redirect('user_dashboard')
     if request.session.get('username', None) and request.session.get('type', None) == 'manager':
